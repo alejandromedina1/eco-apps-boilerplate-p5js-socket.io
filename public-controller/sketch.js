@@ -24,10 +24,13 @@ function draw() {
 }
 
 function mousePressed() {
-    /*
-    To be continue...
 
-    if (b1.x < mouseX && mouseX < b1.x + b1.width && b1.y < b1 && mouseY < b1.y + b1.height) {
-        
-    }*/
+    if (b1.x < mouseX && mouseX < b1.x + b1.width && b1.y < mouseY && mouseY < b1.y + b1.height) {
+        const ellipseColor = {
+            red: 0,
+            green: 255
+        }
+        socket.emit('change-color', ellipseColor)
+        console.log('mensaje enviado')
+    }
 }

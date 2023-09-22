@@ -6,6 +6,7 @@ let socket = io(localURL, {
 
 let red = 255;
 let green = 0;
+let blue = 0
 function setup() {
     frameRate(60);
     createCanvas(windowWidth, windowHeight)
@@ -13,7 +14,12 @@ function setup() {
 
 function draw() {
     background(0);
-    fill(red, green, 0)
+    fill(red, green, blue)
     ellipse(100, 100, 100, 100)
 }
+
+socket.on('sending-colors', ellipseColors =>{
+    red = ellipseColors.red;
+    green = ellipseColors.green
+})
 

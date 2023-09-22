@@ -20,4 +20,7 @@ const io = new Server(httpServer, {path: '/real-time'});
 
 io.on('connection', (socket) => {
     console.log('Connected', socket.id)
+    socket.on('change-color', ellipseColors => {
+        socket.broadcast.emit('sending-colors', ellipseColors)
+    })
 })
